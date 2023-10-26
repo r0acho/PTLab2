@@ -63,7 +63,7 @@ def remove_from_cart(request, item_id):
 
 class PurchaseCreate(CreateView):
     model = Purchase
-    fields = ['product', 'person', 'address']
+    fields = ['cart', 'person', 'address']
 
     def form_valid(self, form):
         self.object = form.save()

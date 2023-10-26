@@ -12,7 +12,6 @@
                 <tr>
                     <td><p>{{ p.name }}</p></td>
                     <td><p>{{ p.price }}</p></td>
-                    <td><p><a href="/buy/{{ p.id }}">Купить</a></p></td>
                     <td><form action="{% url 'add_to_cart' p.id %}" method="post">
                         {% csrf_token %}
                         <button type="submit">Добавить в корзину</button>

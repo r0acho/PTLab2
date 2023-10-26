@@ -24,5 +24,7 @@
     {% endfor %}
   </table>
 
-  <p><a href="{% url 'buy' %}">Оформить заказ</a></p>
+  {% if cart_items|length > 0 %}
+    <p><a href="{% url 'buy'  cart_items.0.cart.id %}">Оформить заказ</a></p>
+  {% endif %}
 {% endblock %}

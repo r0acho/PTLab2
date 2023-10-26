@@ -7,16 +7,16 @@ class Product(models.Model):
     price = models.PositiveIntegerField()
 
 
-class Purchase(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    person = models.CharField(max_length=200)
-    address = models.CharField(max_length=200)
-    date = models.DateTimeField(auto_now_add=True)
-
-
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class Purchase(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    person = models.CharField(max_length=200)
+    address = models.CharField(max_length=200)
+    date = models.DateTimeField(auto_now_add=True)
 
 
 class CartItem(models.Model):

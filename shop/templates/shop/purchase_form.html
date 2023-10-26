@@ -4,7 +4,7 @@
     <div>
         <h3>Покупка</h3>
         <form method="post">{% csrf_token %}
-            <input type="hidden" value="{{ view.kwargs.product_id }}" name="product" />
+            <input type="hidden" value="{{ view.kwargs.cart_id }}" name="cart" />
             <table>
                 <tr>
                     <td><p>Введите свое имя </p></td>
@@ -19,5 +19,8 @@
                 <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
             </table>
         </form>
+        {% for field in form %}
+    {{ field.errors }}
+{% endfor %}
     </div>
 {% endblock %}
