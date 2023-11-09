@@ -146,3 +146,4 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_URL = 'logout'
 
 STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
+TEST_DATABASE_PREFIX = 'test_'
