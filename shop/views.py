@@ -18,7 +18,8 @@ def add_to_cart(request, product_id):
     if request.method == 'POST':
         product = Product.objects.get(pk=product_id)
         cart, created = Cart.objects.get_or_create(user_id=request.user.id)
-        cart_item, item_created = CartItem.objects.get_or_create(cart_id=cart.id, product_id=product.id)
+        cart_item, item_created = CartItem.objects.get_or_create(
+            cart_id=cart.id, product_id=product.id)
         if not item_created:
             cart_item.quantity += 1
             cart_item.save()
@@ -31,7 +32,9 @@ def add_to_cart(request, product_id):
 def view_cart(request):
     cart = Cart.objects.get(user=request.user)
     cart_items = cart.cartitem_set.all()
-    return render(request, 'shop/view_cart.html', {'cart': cart, 'cart_items': cart_items})
+    return render(request, 'shop/view_cart.html', {
+        'cart': cart, 'cart_items': cart_items}
+        )
 
 
 def login_view(request):
