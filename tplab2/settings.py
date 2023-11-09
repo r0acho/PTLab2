@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-import django_heroku
 import dj_database_url
 from dotenv import load_dotenv
 from pathlib import Path
@@ -147,4 +146,3 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_URL = 'logout'
 
 STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
-django_heroku.settings(locals())
