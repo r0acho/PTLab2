@@ -26,6 +26,9 @@ jobs:
       - name: Lint with pycodestyle
         run: |
           pycodestyle shop/tests shop/*.py
+      - name: Set testing environment
+        run: |
+          export DJANGO_SETTINGS_MODULE="tplab2.settings_test"
       - name: Test with pytest
         run: |
           python manage.py test
