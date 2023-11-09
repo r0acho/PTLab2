@@ -28,10 +28,10 @@ jobs:
           pycodestyle shop/tests shop/*.py
       - name: Set testing environment
         run: |
-          touch shop/settings_test.py
-          echo "from .settings import *" > tplab2/settings_test.py
-          echo "DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'" >> tplab2/settings_test.py
-          echo "DATABASES['default']['NAME'] = ':memory:'" >> tplab2/settings_test.py
+          echo "from .settings import *" > shop/settings_test.py
+          echo "DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'" >> shop/settings_test.py
+          echo "DATABASES['default']['NAME'] = ':memory:'" >> shop/settings_test.py
+          echo "TEST_DATABASE_PREFIX = 'test_'" >> shop/settings_test.py
       - name: Test with pytest
         run: |
           python manage.py test
