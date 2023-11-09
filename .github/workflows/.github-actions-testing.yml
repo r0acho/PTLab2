@@ -26,12 +26,6 @@ jobs:
       - name: Lint with pycodestyle
         run: |
           pycodestyle shop/tests shop/*.py
-      - name: Set testing environment
-        run: |
-          echo "from .settings import *" > shop/settings_test.py
-          echo "DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'" >> shop/settings_test.py
-          echo "DATABASES['default']['NAME'] = ':memory:'" >> shop/settings_test.py
-          echo "TEST_DATABASE_PREFIX = 'test_'" >> shop/settings_test.py
       - name: Test with pytest
         run: |
           python manage.py test
