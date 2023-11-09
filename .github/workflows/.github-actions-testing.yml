@@ -28,4 +28,4 @@ jobs:
           pycodestyle shop/tests shop/*.py
       - name: Test with pytest
         run: |
-          PYTHONPATH=./:./ pytest shop/tests
+          pytest shop/tests
